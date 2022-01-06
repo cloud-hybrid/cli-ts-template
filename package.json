@@ -1,4 +1,5 @@
 {
+    "name": "cli-ts-template",
     "private": true,
     "version": "0.0.0",
     "type": "module",
@@ -12,20 +13,11 @@
     "scripts": {
         "start": "node index.js",
         "install": "npm run build",
-        "build": "[[ -f /usr/local/bin/tsc ]] && /usr/local/bin/tsc || echo \"TSC Not Found\"",
-        "build-layer": "node build-layer.js",
-        "watch": "/usr/local/bin/tsc --watch",
-        "constructs": "cdktf get --language typescript --output .constructs",
+        "build": "tsc --pretty",
+        "watch": "tsc --watch",
         "upload": "npm publish --access public",
         "reinstall": "npm update && npm install --global --force",
-        "prepublishOnly": "npm install",
-        "rm-distribution": "rm -r -f ./distribution",
-        "rm-js": "find ./src -type f -name \"*.js\" -prune -exec rm -rf '{}' +",
-        "rm-locks": "find . -type f -name \"package-lock.json\" -prune -exec rm -rf '{}' +",
-        "rm-types": "find ./src -type f -name \"*.d.ts\" -prune -exec rm -rf '{}' +",
-        "rm-node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
-        "upgrade": "npm i cdktf@latest cdktf-cli@latest",
-        "upgrade-next": "npm i cdktf@next cdktf-cli@next"
+        "prepublishOnly": "npm install"
     },
     "peerDependencies": {
         "typescript": "latest"
@@ -84,6 +76,6 @@
         ]
     },
     "bin": {
-        "cloud-factory": "./index.js"
+        "cli-ts-template": "./index.js"
     }
 }
